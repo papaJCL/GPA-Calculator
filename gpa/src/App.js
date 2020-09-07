@@ -4,6 +4,7 @@ import { Row, Col, Container, Jumbotron } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import '../node_modules/@sweetalert2/theme-dark';
 import styled from 'styled-components';
+import './App.css'
 
 
 // ===========================================================================
