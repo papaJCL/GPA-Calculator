@@ -1,6 +1,10 @@
 body {
     height: 100%;
+    display:flex;
     font-family: 'Open Sans', sans-serif;
-    color:rgba(212, 33, 33, 0.87);
-    background-color:#171F24;
+    color:#0D2451;
+    background-color:#FFFFFF;
+    justify-content:center;
+    align-items:center;
+    font-size: 16px;
 }

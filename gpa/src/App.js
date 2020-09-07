@@ -1,6 +1,7 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
 import { Input } from 'reactstrap'
-import { Row, Col, Container, Jumbotron } from 'react-bootstrap';
+import Fade from 'react-reveal/Fade';
+import { Row, Col, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import '../node_modules/@sweetalert2/theme-dark';
 import styled from 'styled-components';
@@ -9,6 +10,25 @@ import './App.css'
 
 // ===========================================================================
 // STYLED COMPONENTS =========================================================
+
+const Header = styled.h1`
+  font-family:'raleway';
+  text-transform: uppercase;
+  font-size: 7.5em;
+  padding-bottom: 60px;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+  @media (max-width: 656px) {
+    font-size: 2.5em;
+    }
+`
+
+const InstructionsBox = styled.div`
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 15px;
+  border-radius: 25px;
+`
 
 const Button = styled.button`
     background: #222;
@@ -237,53 +257,58 @@ function App() {
   // RENDERING GRID
   const renderInputs = () => {
     return (
-      <div >
-        {renderFormRow("grade1", "credit1")}
-        {renderFormRow("grade2", "credit2")}
-        {renderFormRow("grade3", "credit3")}
-        {renderFormRow("grade4", "credit4")}
-        {renderFormRow("grade5", "credit5")}
-        {renderFormRow("grade6", "credit6")}
-        <br />
-        <Button onClick={calculateGPA} >
-          <div className="w3-opacity">
-            <b>CALCULATE</b>
-          </div>
-        </Button>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <Button onClick={resetToBaseState} >
-          <div className="w3-opacity">
-            <b>RESET</b>
-          </div>
-        </Button>
-      </div>
+      <InstructionsBox>
+        <div >
+          {renderFormRow("grade1", "credit1")}
+          {renderFormRow("grade2", "credit2")}
+          {renderFormRow("grade3", "credit3")}
+          {renderFormRow("grade4", "credit4")}
+          {renderFormRow("grade5", "credit5")}
+          {renderFormRow("grade6", "credit6")}
+          <br />
+        </div>
+      </InstructionsBox>
     )
   }
 
   //RENDERING INSTRUCTIONS
   const instructions = () => {
     return (
-      <div className="display-linebreak">
-        <h4 className="w3">INSTRUCTIONS</h4>
-        <div className="hr" />
-        <p className="w3-text-grey">
-          {"1. For the letter grade column, put in your letter grade(A through F)\n" +
-            "2. For the credits column put how many credits its worth\n" +
-            "3. Leave the rest of the rows blank once you've put all your classes in\n" +
-            "4. Press Calculate when done"}
-        </p>
-      </div>
+      <Fade left>
+        <InstructionsBox>
+          <div className="display-linebreak">
+            <h4 className="w3">INSTRUCTIONS</h4>
+            <div className="hr" />
+            <p className="w3-text-grey">
+              {"1. For the letter grade column, put in your letter grade(A through F)\n" +
+                "2. For the credits column put how many credits its worth\n" +
+                "3. Leave the rest of the rows blank once you've put all your classes in\n" +
+                "4. Press Calculate when done"}
+            </p>
+          </div>
+        </InstructionsBox>
+      </Fade>
     )
   }
 
 
   return (
     <div>
-      <Jumbotron />
       <Container>
+        <Header>Gpa Calculator</Header>
         {instructions()}
         <br />
         {renderInputs()}
+        <Button onClick={calculateGPA} >
+          <div className="w3-opacity">
+            <b>CALCULATE</b>
+          </div>
+        </Button>
+        <Button onClick={resetToBaseState} >
+          <div className="w3-opacity">
+            <b>RESET</b>
+          </div>
+        </Button>
       </Container>
     </div>
   )
