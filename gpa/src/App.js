@@ -3,7 +3,6 @@ import { Input } from 'reactstrap'
 import Fade from 'react-reveal/Fade';
 import { Row, Col, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2'
-import '../node_modules/@sweetalert2/theme-dark';
 import styled from 'styled-components';
 import './App.css'
 
@@ -12,10 +11,12 @@ import './App.css'
 // STYLED COMPONENTS =========================================================
 
 const Header = styled.h1`
+  text-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+  color: #0D2451;
   font-family:'raleway';
   text-transform: uppercase;
   font-size: 7.5em;
-  padding-bottom: 60px;
+  padding-bottom: 2rem;
   font-family: 'Raleway', sans-serif;
   letter-spacing: 2px;
   text-align: center;
@@ -25,33 +26,61 @@ const Header = styled.h1`
 `
 
 const InstructionsBox = styled.div`
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
   padding: 15px;
   border-radius: 25px;
 `
 
-const Button = styled.button`
-    background: #222;
-    border: none;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 6px;
-    color: #bbb;
-    margin:20px
-    transition-duration: 0.4s;
-    -webkit-transition-duration: 0.4s; 
-    transition-duration: 0.4s;
-    font-size: 16px;
-    border-radius: 12px;
+const CalculateButton = styled.button`
+  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+  padding: 15px;
+  margin: 10px;
+  border-radius: 15px;
+  display: inline-block;
+  width: 40%;
+  border: none;
+  color:#0D2451;
+  background-color:#F7D9FA;
+  padding: 14px 28px;
+  font-size: 32px;
+  cursor: pointer;
+  text-align: center;
+  height: 75px;
+  transition: transform .2s;
+  
+  @media (max-width: 656px) {
+    height: 90px;
+    width: 90%;
+    transform: scale(1);
+    }
     &:hover {
-        color: white;
+        transform: scale(1.05);
     },
-    .btn:focus, .btn:active {
-        outline: none !important;
-        box-shadow: none !important;
-      }
+`;
+
+const ResetButton = styled.button`
+  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+  padding: 15px;
+  margin: 10px;
+  border-radius: 15px;
+  display: inline-block;
+  width: 40%;
+  border: none;
+  background-color: #D9FAF7;
+  padding: 14px 28px;
+  font-size: 32px;
+  cursor: pointer;
+  text-align: center;
+  height: 75px;
+  transition: transform .3s;
+
+  @media (max-width: 656px) {
+    width: 90%;
+    transform: scale(1);
+    }
+    &:hover {
+        transform: scale(1.05);
+    },
 `;
 
 const Styles = styled.div`
@@ -61,12 +90,17 @@ const Styles = styled.div`
     }
     input[type=text] {
         background-color: white;
-        color: black;
+        color: #0D2451;
         font-size: 25x;
         
         border: 1px solid grey;
         border-radius: 4px;
-        
+    }
+    @media (max-width: 656px) {
+      input[type=text] {
+        color: #0D2451;
+        font-size: 11px;
+      }
     }
 `;
 // ===========================================================================
@@ -257,24 +291,26 @@ function App() {
   // RENDERING GRID
   const renderInputs = () => {
     return (
-      <InstructionsBox>
-        <div >
-          {renderFormRow("grade1", "credit1")}
-          {renderFormRow("grade2", "credit2")}
-          {renderFormRow("grade3", "credit3")}
-          {renderFormRow("grade4", "credit4")}
-          {renderFormRow("grade5", "credit5")}
-          {renderFormRow("grade6", "credit6")}
-          <br />
-        </div>
-      </InstructionsBox>
+      <Fade bottom>
+        <InstructionsBox>
+          <div >
+            {renderFormRow("grade1", "credit1")}
+            {renderFormRow("grade2", "credit2")}
+            {renderFormRow("grade3", "credit3")}
+            {renderFormRow("grade4", "credit4")}
+            {renderFormRow("grade5", "credit5")}
+            {renderFormRow("grade6", "credit6")}
+            <br />
+          </div>
+        </InstructionsBox>
+      </Fade>
     )
   }
 
   //RENDERING INSTRUCTIONS
   const instructions = () => {
     return (
-      <Fade left>
+      <Fade bottom >
         <InstructionsBox>
           <div className="display-linebreak">
             <h4 className="w3">INSTRUCTIONS</h4>
@@ -299,16 +335,15 @@ function App() {
         {instructions()}
         <br />
         {renderInputs()}
-        <Button onClick={calculateGPA} >
-          <div className="w3-opacity">
-            <b>CALCULATE</b>
-          </div>
-        </Button>
-        <Button onClick={resetToBaseState} >
-          <div className="w3-opacity">
-            <b>RESET</b>
-          </div>
-        </Button>
+        <br />
+        <center>
+          <CalculateButton onClick={calculateGPA} >
+            CALCULATE
+          </CalculateButton>
+          <ResetButton onClick={resetToBaseState} >
+            RESET
+          </ResetButton>
+          </center>
       </Container>
     </div>
   )
