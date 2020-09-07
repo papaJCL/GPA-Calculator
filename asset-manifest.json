@@ -1,19 +1,22 @@
 {
   "files": {
-    "main.js": "/GPA-Calculator/static/js/main.8edf052f.chunk.js",
-    "main.js.map": "/GPA-Calculator/static/js/main.8edf052f.chunk.js.map",
+    "main.js": "/GPA-Calculator/static/js/main.fa6c1da7.chunk.js",
+    "main.js.map": "/GPA-Calculator/static/js/main.fa6c1da7.chunk.js.map",
     "runtime-main.js": "/GPA-Calculator/static/js/runtime-main.ad64e7c9.js",
     "runtime-main.js.map": "/GPA-Calculator/static/js/runtime-main.ad64e7c9.js.map",
-    "static/js/2.58cbb964.chunk.js": "/GPA-Calculator/static/js/2.58cbb964.chunk.js",
-    "static/js/2.58cbb964.chunk.js.map": "/GPA-Calculator/static/js/2.58cbb964.chunk.js.map",
+    "static/css/2.9b39914f.chunk.css": "/GPA-Calculator/static/css/2.9b39914f.chunk.css",
+    "static/js/2.b2f9844c.chunk.js": "/GPA-Calculator/static/js/2.b2f9844c.chunk.js",
+    "static/js/2.b2f9844c.chunk.js.map": "/GPA-Calculator/static/js/2.b2f9844c.chunk.js.map",
     "index.html": "/GPA-Calculator/index.html",
-    "precache-manifest.373a1a035f0b8b80ddb8fcae62a08c0d.js": "/GPA-Calculator/precache-manifest.373a1a035f0b8b80ddb8fcae62a08c0d.js",
+    "precache-manifest.62b77d9296f9680ab1ce3d84e6de9cd9.js": "/GPA-Calculator/precache-manifest.62b77d9296f9680ab1ce3d84e6de9cd9.js",
     "service-worker.js": "/GPA-Calculator/service-worker.js",
-    "static/js/2.58cbb964.chunk.js.LICENSE.txt": "/GPA-Calculator/static/js/2.58cbb964.chunk.js.LICENSE.txt"
+    "static/css/2.9b39914f.chunk.css.map": "/GPA-Calculator/static/css/2.9b39914f.chunk.css.map",
+    "static/js/2.b2f9844c.chunk.js.LICENSE.txt": "/GPA-Calculator/static/js/2.b2f9844c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ad64e7c9.js",
-    "static/js/2.58cbb964.chunk.js",
-    "static/js/main.8edf052f.chunk.js"
+    "static/css/2.9b39914f.chunk.css",
+    "static/js/2.b2f9844c.chunk.js",
+    "static/js/main.fa6c1da7.chunk.js"
   ]
 }
