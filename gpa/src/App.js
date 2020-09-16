@@ -11,14 +11,14 @@ import './App.css'
 // STYLED COMPONENTS =========================================================
 
 const Header = styled.h1`
-  text-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
-  color: #0D2451;
-  font-family:'raleway';
+  background-color: #ff661a;
+  color: black;
   text-transform: uppercase;
-  font-size: 7.5em;
+  font-size: 3.5em;
   padding-bottom: 2rem;
+  padding-top: 2rem;
   font-family: 'Raleway', sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-align: center;
   @media (max-width: 656px) {
     font-size: 2.5em;
@@ -26,9 +26,12 @@ const Header = styled.h1`
 `
 
 const InstructionsBox = styled.div`
+  margin-top: 2rem;
+  white-space: pre-line; 
+  background: #fafafa;
   box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
   padding: 15px;
-  border-radius: 25px;
+  border-radius: 15px;
 `
 
 const CalculateButton = styled.button`
@@ -40,7 +43,7 @@ const CalculateButton = styled.button`
   width: 40%;
   border: none;
   color:#0D2451;
-  background-color:#F7D9FA;
+  background-color:#66ccff;
   padding: 14px 28px;
   font-size: 32px;
   cursor: pointer;
@@ -66,7 +69,7 @@ const ResetButton = styled.button`
   display: inline-block;
   width: 40%;
   border: none;
-  background-color: #D9FAF7;
+  background-color: #ff6680;
   padding: 14px 28px;
   font-size: 32px;
   cursor: pointer;
@@ -84,6 +87,7 @@ const ResetButton = styled.button`
 `;
 
 const Styles = styled.div`
+  margin-top: .4rem;
     .form-control:focus {
         border-color: grey;
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 0px grey;
@@ -103,6 +107,7 @@ const Styles = styled.div`
       }
     }
 `;
+
 // ===========================================================================
 // ===========================================================================
 
@@ -312,16 +317,13 @@ function App() {
     return (
       <Fade bottom >
         <InstructionsBox>
-          <div className="display-linebreak">
-            <h4 className="w3">INSTRUCTIONS</h4>
-            <div className="hr" />
-            <p className="w3-text-grey">
+            <h4>INSTRUCTIONS</h4>
+            <p >
               {"1. For the letter grade column, put in your letter grade(A through F)\n" +
                 "2. For the credits column put how many credits its worth\n" +
                 "3. Leave the rest of the rows blank once you've put all your classes in\n" +
                 "4. Press Calculate when done"}
             </p>
-          </div>
         </InstructionsBox>
       </Fade>
     )
@@ -330,10 +332,9 @@ function App() {
 
   return (
     <div>
+      <Header>Gpa Calculator</Header>
       <Container>
-        <Header>Gpa Calculator</Header>
         {instructions()}
-        <br />
         {renderInputs()}
         <br />
         <center>
@@ -343,7 +344,7 @@ function App() {
           <ResetButton onClick={resetToBaseState} >
             RESET
           </ResetButton>
-          </center>
+        </center>
       </Container>
     </div>
   )

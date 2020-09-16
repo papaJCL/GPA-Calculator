@@ -1,17 +1,17 @@
 body {
     height: 100%;
-    display:flex;
-    font-family: 'Open Sans', sans-serif;
-    color:#0D2451;
-    background-color:#FFFFFF;
+    /* display:flex; */
+    font-family: 'raleway', sans-serif;
+    color:#696969;
+    background-color:#FF9966;
     justify-content:center;
-    align-items:center;
+    /* align-items:center; */
     font-size: 16px;
-    white-space: pre-wrap;
 }
 
 .swal2-popup .swal2-styled:focus {
     box-shadow: none !important;
 }
+
 
 button:focus {outline:0;}
