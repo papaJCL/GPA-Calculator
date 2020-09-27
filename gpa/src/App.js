@@ -10,13 +10,22 @@ import './App.css'
 // ===========================================================================
 // STYLED COMPONENTS =========================================================
 
+const Background = styled.div`
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 656px) {
+    height: 100%;
+    }
+`
+
 const Header = styled.h1`
-  background-color: #ff661a;
-  color: black;
+  color: #fafafa;
   text-transform: uppercase;
   font-size: 3.5em;
   padding-bottom: 2rem;
   padding-top: 2rem;
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
   font-family: 'Raleway', sans-serif;
   letter-spacing: 3px;
   text-align: center;
@@ -29,20 +38,21 @@ const InstructionsBox = styled.div`
   margin-top: 2rem;
   white-space: pre-line; 
   background: #fafafa;
-  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
   padding: 15px;
   border-radius: 15px;
 `
 
 const CalculateButton = styled.button`
-  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
   padding: 15px;
   margin: 10px;
   border-radius: 15px;
   display: inline-block;
   width: 40%;
   border: none;
-  color:#0D2451;
+  color:#ededed;
   background-color:#66ccff;
   padding: 14px 28px;
   font-size: 32px;
@@ -62,7 +72,9 @@ const CalculateButton = styled.button`
 `;
 
 const ResetButton = styled.button`
-  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+  color:#ededed;
   padding: 15px;
   margin: 10px;
   border-radius: 15px;
@@ -317,13 +329,13 @@ function App() {
     return (
       <Fade bottom >
         <InstructionsBox>
-            <h4>INSTRUCTIONS</h4>
-            <p >
-              {"1. For the letter grade column, put in your letter grade(A through F)\n" +
-                "2. For the credits column put how many credits its worth\n" +
-                "3. Leave the rest of the rows blank once you've put all your classes in\n" +
-                "4. Press Calculate when done"}
-            </p>
+          <h4>INSTRUCTIONS</h4>
+          <p >
+            {"1. For the letter grade column, put in your letter grade(A through F)\n" +
+              "2. For the credits column put how many credits its worth\n" +
+              "3. Leave the rest of the rows blank once you've put all your classes in\n" +
+              "4. Press Calculate when done"}
+          </p>
         </InstructionsBox>
       </Fade>
     )
@@ -332,20 +344,22 @@ function App() {
 
   return (
     <div>
-      <Header>Gpa Calculator</Header>
-      <Container>
-        {instructions()}
-        {renderInputs()}
-        <br />
-        <center>
-          <CalculateButton onClick={calculateGPA} >
-            CALCULATE
+      <Background>
+        <Header>Gpa Calculator</Header>
+        <Container>
+          {instructions()}
+          {renderInputs()}
+          <br />
+          <center>
+            <CalculateButton onClick={calculateGPA} >
+              Calculate
           </CalculateButton>
-          <ResetButton onClick={resetToBaseState} >
-            RESET
+            <ResetButton onClick={resetToBaseState} >
+              Reset
           </ResetButton>
-        </center>
-      </Container>
+          </center>
+        </Container>
+      </Background>
     </div>
   )
 }

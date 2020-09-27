@@ -1,11 +1,8 @@
 body {
-    height: 100%;
-    /* display:flex; */
     font-family: 'raleway', sans-serif;
     color:#696969;
-    background-color:#FF9966;
+    background: linear-gradient(to top left, #ff7366 50%,#FF9966 100%) ;
     justify-content:center;
-    /* align-items:center; */
     font-size: 16px;
 }
 
